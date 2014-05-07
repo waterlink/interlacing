@@ -5,6 +5,7 @@ class Reservation < ActiveRecord::Base
   private
 
   def overbooking
+    # TODO Extract this to scope, so we can show them to user
     conditions = [
       '(start_at > :start_at and start_at < :end_at)',
       '(end_at > :start_at and end_at < :end_at)',
